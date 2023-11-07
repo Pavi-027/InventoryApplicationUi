@@ -1,0 +1,39 @@
+<ng-container *ngIf=" categoryModel |async as categoryModel">
+    <div class="container">
+        <div class="card shadow text-center">
+            <div class="card-header bg-transparent">
+                <div class="row pt-4">
+                    <div class="col-6">
+                        <h2 class="text-primary">Category List</h2>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a class="btn btn-primary" [routerLink]="['/category/add']">
+                            Add New Category
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover px-10">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Sno</th>
+                            <th>Category</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let category of categoryModel">
+                        <tr>
+                            <td>{{category.categoryId}}</td>
+                            <td>{{category.categoryName}}</td>
+                            <td>
+                                <a class="btn btn-outline-warning"
+                                    [routerLink]="['/category/edit&&delete', category.categoryId]">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

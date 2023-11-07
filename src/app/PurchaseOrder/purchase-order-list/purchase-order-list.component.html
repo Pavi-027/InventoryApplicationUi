@@ -1,0 +1,49 @@
+<ng-container *ngIf="purchaseOrder$ | async as purchaseOrders">
+    <div class="container">
+        <div class="card shadow text-center">
+            <div class="card-header bg-transparent">
+                <div class="row pt-4">
+                    <div class="col-6">
+                        <h2 class="text-primary">PurchaseOrders List</h2>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a class="btn btn-primary" [routerLink]="['/purchaseOrder/add']">
+                            Add New PurchaseOrders
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover px-10">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Sno</th>
+                            <th>Purchase Date</th>
+                            <th>Supplier</th>
+                            <th>Products</th>
+                            <th>Quantity</th>
+                            <th>TotalCost</th>
+                            <th>Discount</th>
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i=index, let purchaseOrder of purchaseOrders">
+                            <td>{{i+1}}</td>
+                            <td>{{purchaseOrder.purchaseDate}}</td>
+                            <td>{{purchaseOrder.supplier.supplierName}}</td>
+                            <td>
+                                <span *ngFor="let product of purchaseOrder.products; let last = last">
+                                    {{ product.productName}}{{ !last ? ', ' : '' }}
+                                </span>
+                            </td>
+                            <td>{{purchaseOrder.quantityForPurchase}}</td>
+                            <td>{{purchaseOrder.totalCostOfPurchaseorder}}</td>
+                            <td>{{purchaseOrder.purchaseDiscount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

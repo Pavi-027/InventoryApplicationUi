@@ -1,0 +1,51 @@
+<ng-container *ngIf="customers$ | async as customers">
+    <div class="container">
+        <div class="card shadow text-center">
+            <div class="card-header bg-transparent">
+                <div class="row pt-4">
+                    <div class="col-6">
+                        <h2 class="text-primary">Customer List</h2>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a class="btn btn-primary" [routerLink]="['/customer/add']">
+                            Add New Customer
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover px-10">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Sno</th>
+                            <th>Customer Name</th>
+                            <th>Phone Number</th>
+                            <th>Email Id</th>
+                            <th>Street Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Pincode</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i=index, let customer of customers">
+                            <td>{{i+1}}</td>
+                            <td>{{customer.customerName}}</td>
+                            <td>{{customer.phoneNumber}}</td>
+                            <td>{{customer.emailId}}</td>
+                            <td>{{customer.streetAddress}}</td>
+                            <td>{{customer.city}}</td>
+                            <td>{{customer.state}}</td>
+                            <td>{{customer.pincode}}</td>
+                            <td>
+                                <a class="btn btn-outline-warning"
+                                    [routerLink]="['/customer/edit', customer.customerId]">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

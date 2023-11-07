@@ -1,0 +1,53 @@
+<ng-container *ngIf="salesOrders$ | async as salesOrders">
+    <div class="container">
+        <div class="card shadow text-center">
+            <div class="card-header bg-transparent">
+                <div class="row pt-4">
+                    <div class="col-6">
+                        <h2 class="text-primary">SalesOders List</h2>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a class="btn btn-primary" [routerLink]="['/salesOrder/add']">
+                            Add New SalesOders
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover px-10">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Sno</th>
+                            <th>Sales Date</th>
+                            <th>Customer</th>
+                            <th>Products</th>
+                            <th>Quantity</th>
+                            <th>TotalCost</th>
+                            <th>Discount</th>
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i=index, let salesOrder of salesOrders">
+                            <td>{{i+1}}</td>
+                            <td>{{salesOrder.saleDate}}</td>
+                            <td>{{salesOrder.customer.customerName}}</td>
+                            <td>
+                                <span *ngFor="let product of salesOrder.products; let last = last">
+                                    {{ product.productName }}{{ !last ? ', ' : '' }}
+                                </span>
+                            </td>
+                            <td>{{salesOrder.quantityForSale}}</td>
+                            <td>{{salesOrder.totalCostOfSalesOrder}}</td>
+                            <td>{{salesOrder.salesDiscount}}</td>
+                            <!-- <td>
+                                <a class="btn btn-outline-warning"
+                                    [routerLink]="['/salesOrder/edit', salesOrder.salesId]">Edit</a>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

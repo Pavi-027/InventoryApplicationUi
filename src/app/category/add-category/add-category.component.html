@@ -1,0 +1,27 @@
+<div class="container mx-auto p-100 justify-content-center">
+    <div class="card shadow text-center">
+        <div class="card-header bg-transparent">
+                <h2 class="text-primary">Create Category</h2>
+        </div>
+        <div class="card-body pt-3">
+            <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+                <div class="form-group row mb-5 mt-3">
+                    <div class="inputs col-sm-4">
+                        <label class="form-label" >Category Name</label>
+                    </div>
+                    <div class="textbox col-sm-4">
+                        <input type="text" id="categoryName" class="form-control" name="categoryName" [(ngModel)]="addCategoryModel.categoryName">
+                    </div>                        
+                </div>
+                <div class="buttons form-group row mb-3 ml-30">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Create</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a class="btn btn-outline-secondary form-control" (click)="backToList()">Back </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

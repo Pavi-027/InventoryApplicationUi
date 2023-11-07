@@ -1,0 +1,87 @@
+<body>
+    <div class="container">
+        <div class="title">Register</div>
+        <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+            <div class="user-details">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="input-box">
+                    <label class="details" for="fullName">Full Name</label>
+                    <input formControlName="fullName" type="text" placeholder="Enter your Full Name"
+                        class="form-control" [class.is-invalid]="submitted && registerForm.get('fullName')?.errors">
+                    <span class="text-danger" *ngIf="submitted && registerForm.get('fullName')?.hasError('required')">
+                        Name is required
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="submitted && registerForm.get('fullName')?.hasError('minlength') || registerForm.get('fullName')?.hasError('maxlength')">
+                        Name must be atleast 3, and maximum 50 characters
+                    </span>
+                </div>
+                <div class="input-box">
+                    <label class="details" for="email">Email Id</label>
+                    <input formControlName="email" type="email" placeholder="Enter your Email" class="form-control"
+                        [class.is-invalid]="submitted && registerForm.get('email')?.errors">
+                    <span class="text-danger" *ngIf="submitted && registerForm.get('email')?.hasError('required')">
+                        Email Id is required
+                    </span>
+                    <span class="text-danger" *ngIf="submitted && registerForm.get('email')?.hasError('pattern')">
+                        Invalid Email Address
+                    </span>
+                </div>
+                <div class="input-box">
+                    <label class="details" for="password">Password</label>
+                    <input formControlName="password" type="password" placeholder="Enter your Password"
+                        class="form-control" [class.is-invalid]="submitted && registerForm.get('password')?.errors">
+                    <span class="text-danger" *ngIf="submitted && registerForm.get('password')?.hasError('required')">
+                        Password is required
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="submitted && registerForm.get('password')?.hasError('minlength') || registerForm.get('password')?.hasError('maxlength')">
+                        Password must be atleast 6, and maximum 50 characters
+                    </span>
+                </div>
+                <div class="input-box">
+                    <label class="details" for="confirmPassword">Confirm Password</label>
+                    <input formControlName="confirmPassword" type="password" placeholder="Enter Your Confirm Password"
+                        class="form-control"
+                        [class.is-invalid]="submitted && registerForm.get('confirmPassword')?.errors">
+                    <span class="text-danger"
+                        *ngIf="submitted && registerForm.get('confirmPassword')?.hasError('required')">
+                        Confirm Password is required
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="submitted && registerForm.get('confirmPassword')?.hasError('passwordMismatch')">
+                        Confirm Password do not match the password
+                    </span>
+                </div>
+                <div class="input-box">
+                    <label class="details" for="StreetAddress">Street Address</label>
+                    <input formControlName="streetAddress" type="text" placeholder="Enter Your Address"
+                        class="form-control">
+                </div>
+                <div class="input-box">
+                    <label class="details" for="city">City</label>
+                    <input formControlName="city" type="text" placeholder="Enter Your City" class="form-control">
+                </div>
+                <div class="input-box">
+                    <label class="details" for="state">State</label>
+                    <input formControlName="state" type="text" placeholder="Enter Your State" class="form-control">
+                </div>
+                <div class="input-box">
+                    <label class="details" for="pincode">Pincode</label>
+                    <input formControlName="pincode" type="text" placeholder="Enter Your Pincode" class="form-control">
+                </div>
+                <div class="button">
+                    <!-- <input type="submit" value="Register" id="registerSubmit"> -->
+                    <button class="btn btn-lg" type="submit">Register</button>
+                </div>
+            </div>
+            <div class="form-floatin" *ngIf="errorMessages.length > 0">
+                <ul class="text-danger" *ngIf="errorMessages">
+                    <li *ngFor="let error of errorMessages">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</body>

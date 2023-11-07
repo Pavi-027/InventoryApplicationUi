@@ -1,0 +1,59 @@
+<ng-container *ngIf="product$ | async as products">
+    <div class="container">
+        <div class="card shadow text-center">
+            <div class="card-header bg-transparent col-12">
+                <div class="row pt-4">
+                    <div class="col-6">
+                        <h2 class="text-primary">Product List</h2>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a class="btn btn-primary" [routerLink]="['/product/add']">
+                            Add New Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover px-10">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Sno</th>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <!-- <th>Product Image URL</th> -->
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Total Quantity of Products</th>
+                            <th>Quantity InStock</th>
+                            <th>Status</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products; let i=index"
+                            [routerLink]="['/product/edit/', product.productId]">
+                            <td>{{i+1}}</td>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.description}}</td>
+                            <!-- <td>{{product.productImageURL}}</td> -->
+                            <td>{{product.price}}</td>
+                            <td>{{product.discount}}</td>
+                            <td>{{product.totalQuantityOfProduct}}</td>
+                            <td>{{product.quantityInstock}}</td>
+                            <td>{{product.status}}</td>
+                            <td>
+                                {{product.category.categoryName}}
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-warning"
+                                    [routerLink]="['/product/edit/', product.productId]">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</ng-container>

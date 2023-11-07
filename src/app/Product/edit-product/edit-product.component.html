@@ -1,0 +1,85 @@
+<div class="container mx-auto p-100 justify-content-center">
+  <div class="card shadow">
+    <div class="card-header bg-transparent">
+      <h2 class="text-primary text-center">Edit Product</h2>
+    </div>
+    <ng-container *ngIf="model">
+      <div class="card-body pt-3">
+        <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+          <div class="row">
+            <div class="col-10">
+              <div class="border p-3 mt-5">
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Product Name</label>
+                  <input type="text" id="productName" class="form-control" name="productName"
+                    [(ngModel)]="model.productName" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Description</label>
+                  <input type="text" id="description" class="form-control" name="description"
+                    [(ngModel)]="model.description" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Product Image URL</label>
+                  <input type="file" id="productImageURL" class="form-control" name="productImageURL"
+                    [(ngModel)]="model.productImageURL" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">price</label>
+                  <input type="number" id="price" class="form-control" name="price" [(ngModel)]="model.price" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Discount</label>
+                  <input type="number" id="discount" class="form-control" name="discount"
+                    [(ngModel)]="model.discount" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Total Quantity Of Product</label>
+                  <input type="number" id="totalQuantityOfProduct" class="form-control" name="totalQuantityOfProduct"
+                    [(ngModel)]="model.totalQuantityOfProduct" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Quantity Instock</label>
+                  <input type="number" id="quantityInstock" class="form-control" name="quantityInstock"
+                    [(ngModel)]="model.quantityInstock" />
+                </div>
+                <div class="mb-3 row p-1">
+                  <label class="form-label">Status</label>
+                  <input type="text" id="status" class="form-control" name="status" [(ngModel)]="model.status" />
+                </div>
+
+                <div class="mb-3 row p-1">
+                  <label>Category</label>
+                  <ng-container *ngIf="categories$ | async as categories">
+                    <select required name="Category" #refCategory="ngModel" class="form-control"
+                      [(ngModel)]="selectedCategory">
+                      <option value="undefined">---Select---</option>
+                      <option *ngFor="let item of categories" [ngValue]="item.categoryId">
+                        {{ item.categoryName }}
+                      </option>
+                    </select>
+                  </ng-container>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-primary form-control">Save</button>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <a class="btn btn-outline-secondary form-control" (click)="backToList()">Back</a>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <button type="button" class="btn btn-danger form-control" (click)="onDelete()">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <img src="" width="100%" style="border-radius: 5px; border: 1px solid #bbb9b9" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+  </div>
+</div>

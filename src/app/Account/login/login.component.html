@@ -1,0 +1,58 @@
+<div class="Container d-flex justify-content-center">
+    <div class="wrapper">
+        <div class="title">Login</div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+            <div class="field">
+                <input formControlName="userName" type="email" class="form-control" required
+                    [class.is-invalid]="submitted && loginForm.get('userName')?.errors">
+                <label for="email">Email Id</label>
+                <span class="text-danger" *ngIf="submitted && loginForm.get('userName')?.hasError('required')">
+                    Email Address is required
+                </span>
+            </div>
+            <div class="field">
+                <input formControlName="Password" type="password" class="form-control" required
+                    [class.is-invalid]="submitted && loginForm.get('Password')?.errors">
+                <label for="Password">Password</label>
+                <span class="text-danger" *ngIf="submitted && loginForm.get('Password')?.hasError('required')">
+                    Password is required
+                </span>
+                <span class="text-danger"
+                    *ngIf="submitted && loginForm.get('Password')?.hasError('minlength') || loginForm.get('Password')?.hasError('maxlength')">
+                    Invalid Password
+                </span>
+            </div>
+
+            <!-- <div class="mt-4 text-center">
+                <a class="btn btn-link" [routerLink]="['/Account/send-email/forgot-username-or-password']">
+                    <h6>Forgot password or userName</h6>
+                </a>
+            </div> -->
+
+            <div class="pass-link">
+                <a class="btn btn-link" [routerLink]="['/Account/send-email/forgot-username-or-password']">
+                    <h6>Forgot UserName or Password</h6>
+                </a>
+            </div>
+
+            <div class="field">
+                <input id="login-submit" type="submit" value="Login">
+            </div>
+            <div class="signup-link">
+                Not a member?<a [routerLink]="['/Account/register']">Signup</a>
+            </div>
+
+            <div class="form-floatin" *ngIf="errorMessages.length > 0">
+                <ul class="text-danger" *ngIf="errorMessages">
+                    <li *ngFor="let error of errorMessages">
+                        {{error}}
+                    </li>
+                </ul>
+                <a class="btn btn-link" (click)="resendEmailConfiramtionLink()"
+                    *ngIf="errorMessages[0].includes('Please confirm your email')">
+                    click here to resend email confirmation link in case you didn't receive it.
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
