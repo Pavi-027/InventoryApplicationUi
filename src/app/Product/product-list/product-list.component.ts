@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { product } from '../Model/product.model';
 import { CategoyService } from 'src/app/category/service/categoy.service';
 import { category } from 'src/app/category/Model/category.model';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,9 +15,9 @@ export class ProductListComponent implements OnInit {
 
   product$?: Observable<product[]>;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+    private themeService: ThemeService) { }
 
-  }
 
   ngOnInit(): void {
     this.product$ = this.productService.getAllProducts();

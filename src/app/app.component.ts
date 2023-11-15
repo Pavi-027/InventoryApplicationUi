@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './Account/service/account.service';
 import { SharedService } from './shared/shared.service';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,21 @@ import { SharedService } from './shared/shared.service';
 export class AppComponent implements OnInit {
 
   constructor(public accountService: AccountService,
-    private sharedService: SharedService) { }
+    private sharedService: SharedService,
+    private themeService: ThemeService) { }
 
   ngOnInit(): void {
     this.refreshUser();
+
+    this.themeService.themeChanged.subscribe((isDarkTheme: boolean) => {
+      // Handle theme change here
+      // For example, update styles or apply CSS classes
+      document.body.classList.toggle('dark-theme', isDarkTheme);
+    });
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 
   private refreshUser() {

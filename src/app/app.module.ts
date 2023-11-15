@@ -24,6 +24,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { PurchaseOrderListComponent } from './PurchaseOrder/purchase-order-list/purchase-order-list.component';
 import { AddPurchaseOrderComponent } from './PurchaseOrder/add-purchase-order/add-purchase-order.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+// import { SidenavComponent } from './sidenav/SidenavComponent';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './Account/login/login.component';
 import { RegisterComponent } from './Account/register/register.component';
@@ -35,6 +36,7 @@ import { ConfirmEmailComponent } from './Account/confirm-email/confirm-email.com
 import { SendEmailComponent } from './Account/send-email/send-email.component';
 import { ResetPasswordComponent } from './Account/reset-password/reset-password.component';
 import { UserHasRoleDirectiveDirective } from './shared/directives/user-has-role-directive.directive';
+import { ThemeService } from './theme.service';
 //import { MultiSelectModule } from 'primeng/multiselect';
 
 
@@ -57,7 +59,6 @@ import { UserHasRoleDirectiveDirective } from './shared/directives/user-has-role
     AddSalesOrderComponent,
     PurchaseOrderListComponent,
     AddPurchaseOrderComponent,
-    SidenavComponent,
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
@@ -68,6 +69,7 @@ import { UserHasRoleDirectiveDirective } from './shared/directives/user-has-role
     SendEmailComponent,
     ResetPasswordComponent,
     UserHasRoleDirectiveDirective,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import { UserHasRoleDirectiveDirective } from './shared/directives/user-has-role
 
   ],
   providers: [
+    ThemeService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 <ng-container *ngIf="accountService.user$ | async">
-    <div class="sidenav">
+    <div class="sidenav" [ngClass]="{'dark-theme': isDarkTheme}">
         <div class="Header">
             <h3><i class="bi bi-cart4"></i>Inventory Application</h3>
         </div>
@@ -110,6 +110,9 @@
                                     Hi <span class="h3 text-danger">{{user.fullName | titlecase}}</span>
                                 </a>
                                 <a class="btn btn-secondary ms-2" (click)="logout()">Logout</a>
+
+                                <!-- Dark & Light Theme Toggle Button -->
+                                <!-- <button (click)="toggleTheme()">Toggle Theme</button> -->
                             </div>
                         </div>
                     </div>

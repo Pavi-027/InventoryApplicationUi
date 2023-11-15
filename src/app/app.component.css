@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
     font-family: "Roboto", sans-serif;
     background: #f3f5f9;
 }
+
 .sidenav .Header {
     color: #fff;
     text-align: center;
@@ -10,6 +12,7 @@ body {
     font-size: 25px;
     padding-right: 20px
 }
+
 .sidenav {
     height: 100%;
     width: 200px;
@@ -21,6 +24,7 @@ body {
     overflow-x: hidden;
     padding-top: 20px;
 }
+
 .sidenav .menu a {
     padding-left: 10px;
     text-decoration: none;
@@ -28,34 +32,39 @@ body {
     color: #fff;
     display: block;
 }
-.sidenav .menu hr{
+
+.sidenav .menu hr {
     color: white;
 }
+
 .link {
-    display: inline-block; /* Ensures the link takes up only as much space as needed */
-    margin-right: 10px; /* Adjust the margin as needed for spacing */
-    }
+    display: inline-block;
+    /* Ensures the link takes up only as much space as needed */
+    margin-right: 10px;
+    /* Adjust the margin as needed for spacing */
+}
 
 .sidenav .menu a:hover {
     color: black;
 }
 
 .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
-    font-size: 15px; /* Increased text to enable scrolling */
+    margin-left: 200px;
+    /* Same as the width of the sidenav */
+    font-size: 15px;
+    /* Increased text to enable scrolling */
     padding: 0px 0px;
 }
+
 .main .pageheader {
     padding: 20px;
     background: #fff;
     color: #717171;
     border-bottom: 3px solid #e0e4e8;
 }
+
 .main .info {
     margin: 30px;
     color: #717471;
     line-height: 20px;
 }
-
-
-

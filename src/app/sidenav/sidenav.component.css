@@ -77,3 +77,15 @@ body {
 .btn .btn-secondary .ms-2 {
     padding-right: 5%;
 }
+
+/* Light Theme */
+body {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}

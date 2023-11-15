@@ -12,8 +12,6 @@ export class NotificationComponent {
   title: string = '';
   message: string = '';
 
-  constructor(public bsModalRef: BsModalRef) {
-
-  }
+  constructor(public bsModalRef: BsModalRef) { }
 
 }
