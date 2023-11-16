@@ -16,7 +16,11 @@ export class SidenavComponent implements OnInit {
     private el: ElementRef) { }
 
   ngOnInit() {
-    this.themeService.addThemedElement(this.el.nativeElement);
+    // this.themeService.addThemedElement(this.el.nativeElement);
+  }
+
+  setTheme(theme: string) {
+    this.themeService.setTheme(theme);
   }
 
   logout() {

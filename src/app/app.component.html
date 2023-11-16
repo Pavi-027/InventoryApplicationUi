@@ -1,9 +1,19 @@
-<div>
+<app-sidenav></app-sidenav>
+
+<!-- app.component.html -->
+
+<div style="margin-left: 50%;">
+    <button (click)="switchTheme('light-theme')">Light Theme</button>
+    <button (click)="switchTheme('dark-theme')">Dark Theme</button>
+</div>
+
+
+<!-- <div>
     <h1>Welcome to My App</h1>
     <button (click)="toggleTheme()" style="margin-left: 50%;">Toggle Theme</button>
     <router-outlet></router-outlet>
-    <app-sidenav></app-sidenav>
-</div>
+
+</div> -->
 
 <div class="main">
     <div class="info">

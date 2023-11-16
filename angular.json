@@ -29,7 +29,9 @@
               "./node_modules/bootswatch/dist/zephyr/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ 
+              
+            ]
           },
           "configurations": {
             "production": {

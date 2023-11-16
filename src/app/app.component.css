@@ -1,8 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* Light theme styles */
+.light-theme {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* Dark theme styles */
+.dark-theme {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+}
+
 body {
     font-family: "Roboto", sans-serif;
-    background: #f3f5f9;
+    /* background: #f3f5f9; */
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .sidenav .Header {

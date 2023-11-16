@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from './Account/service/account.service';
 import { SharedService } from './shared/shared.service';
 import { ThemeService } from './theme.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +10,33 @@ import { ThemeService } from './theme.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  private themeSubscription: Subscription | undefined;
 
   constructor(public accountService: AccountService,
     private sharedService: SharedService,
-    private themeService: ThemeService) { }
+    public themeService: ThemeService) {
+    // this.themeSubscription = this.themeService.activeTheme$.subscribe(theme => {
+    //   this.themeService.setTheme(theme);
+    // });
+  }
+
+  switchTheme(theme: string) {
+    this.themeService.setTheme(theme);
+  }
 
   ngOnInit(): void {
     this.refreshUser();
 
-    this.themeService.themeChanged.subscribe((isDarkTheme: boolean) => {
-      // Handle theme change here
-      // For example, update styles or apply CSS classes
-      document.body.classList.toggle('dark-theme', isDarkTheme);
-    });
+    // this.themeService.themeChanged.subscribe((isDarkTheme: boolean) => {
+    //   // Handle theme change here
+    //   // For example, update styles or apply CSS classes
+    //   document.body.classList.toggle('dark-theme', isDarkTheme);
+    // });
   }
 
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
+  // toggleTheme() {
+  //   this.themeService.toggleTheme();
+  // }
 
   private refreshUser() {
     const jwt = this.accountService.getJWT();
@@ -46,6 +56,10 @@ export class AppComponent implements OnInit {
     else {
       this.accountService.refreshUser(null).subscribe();
     }
+  }
+
+  ngOnDestroy() {
+    this.themeSubscription?.unsubscribe();
   }
 
 
