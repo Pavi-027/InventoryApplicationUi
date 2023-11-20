@@ -37,6 +37,7 @@ import { SendEmailComponent } from './Account/send-email/send-email.component';
 import { ResetPasswordComponent } from './Account/reset-password/reset-password.component';
 import { UserHasRoleDirectiveDirective } from './shared/directives/user-has-role-directive.directive';
 import { ThemeService } from './theme.service';
+import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
 //import { MultiSelectModule } from 'primeng/multiselect';
 
 
@@ -69,7 +70,8 @@ import { ThemeService } from './theme.service';
     SendEmailComponent,
     ResetPasswordComponent,
     UserHasRoleDirectiveDirective,
-    SidenavComponent
+    SidenavComponent,
+    SidebarNavComponent
   ],
   imports: [
     BrowserModule,

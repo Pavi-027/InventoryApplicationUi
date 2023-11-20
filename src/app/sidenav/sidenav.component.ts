@@ -10,13 +10,17 @@ import { ThemeService } from '../theme.service';
 })
 export class SidenavComponent implements OnInit {
   isDarkTheme: boolean = false;
-
+  status: boolean = false;
   constructor(public accountService: AccountService,
     private themeService: ThemeService,
     private el: ElementRef) { }
 
   ngOnInit() {
     // this.themeService.addThemedElement(this.el.nativeElement);
+  }
+
+  clickEvent() {
+    this.status = !this.status;
   }
 
   setTheme(theme: string) {

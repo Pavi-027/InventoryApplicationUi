@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private themeSubscription: Subscription | undefined;
+  // private themeSubscription?: Subscription;
 
   constructor(public accountService: AccountService,
     private sharedService: SharedService,
@@ -58,9 +58,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  ngOnDestroy() {
-    this.themeSubscription?.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.themeSubscription?.unsubscribe();
+  // }
 
 
 }
