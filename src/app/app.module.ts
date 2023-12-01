@@ -38,6 +38,7 @@ import { ResetPasswordComponent } from './Account/reset-password/reset-password.
 import { UserHasRoleDirectiveDirective } from './shared/directives/user-has-role-directive.directive';
 import { ThemeService } from './theme.service';
 import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
+import { DummyInventoryComponent } from './dummy-inventory/dummy-inventory.component';
 //import { MultiSelectModule } from 'primeng/multiselect';
 
 
@@ -71,7 +72,8 @@ import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
     ResetPasswordComponent,
     UserHasRoleDirectiveDirective,
     SidenavComponent,
-    SidebarNavComponent
+    SidebarNavComponent,
+    DummyInventoryComponent
   ],
   imports: [
     BrowserModule,

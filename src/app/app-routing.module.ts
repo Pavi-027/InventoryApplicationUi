@@ -24,6 +24,8 @@ import { ConfirmEmailComponent } from './Account/confirm-email/confirm-email.com
 import { SendEmailComponent } from './Account/send-email/send-email.component';
 import { ResetPasswordComponent } from './Account/reset-password/reset-password.component';
 import { adminGuard } from './shared/guards/admin.guard';
+import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
+import { DummyInventoryComponent } from './dummy-inventory/dummy-inventory.component';
 
 
 
@@ -55,16 +57,34 @@ const routes: Routes = [
   },
 
   //Authorize Supplier & Admin
-  {
-    path: '',
-    runGuardsAndResolvers: 'always',
-    canActivate: [adminGuard],
-    children: [
-      { path: 'supplier/list', component: SupplierListComponent },
-      { path: 'supplier/add', component: AddSupplierComponent },
-      { path: 'supplier/edit/:id', component: EditSupplierComponent },
-    ]
-  },
+  // {
+  //   path: '',
+  //   runGuardsAndResolvers: 'always',
+  //   canActivate: [adminGuard],
+  //   children: [
+  //     { path: 'supplier/list', component: SupplierListComponent, outlet: 'sub' },
+  //     { path: 'supplier/add', component: AddSupplierComponent, outlet: 'sub' },
+  //     { path: 'supplier/edit/:id', component: EditSupplierComponent, outlet: 'sub' },
+  //   ]
+  // },
+
+  // //Supplierlist
+  // {
+  //   path: 'supplierlist',
+  //   component: SupplierListComponent,
+  //   outlet: 'sub',
+  //   children: [
+  //     { path: 'supplieradd', component: AddSupplierComponent },
+  //     { path: 'supplieredit/:id', component: EditSupplierComponent },
+  //   ]
+  // },
+  //dummyinventory
+  { path: 'dummy-inventory', component: DummyInventoryComponent },
+
+  //Supplierlist
+  { path: 'supplier/list', component: SupplierListComponent },
+  { path: 'supplier/add', component: AddSupplierComponent },
+  { path: 'supplier/edit/:id', component: EditSupplierComponent },
 
   //SalesOrder
   { path: 'salesOrder/list', component: SalesOrderListComponent },

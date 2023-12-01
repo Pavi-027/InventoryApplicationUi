@@ -22,15 +22,14 @@ export class AddSupplierComponent implements OnInit {
       pincode: 0
     }
   }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   onFormSubmit() {
     this.supplierService.createSupplier(this.model)
       .subscribe({
         next: (response) => {
           this.router.navigateByUrl('supplier/list');
+          //this.router.navigate([{ outlets: { sub: '/supplier/list' } }]);
         }
       });
   }
@@ -40,6 +39,7 @@ export class AddSupplierComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.router.navigateByUrl('supplier/list');
+          //this.router.navigate([{ outlets: { sub: '/supplier/list' } }]);
         }
       });
   }

@@ -1,20 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-/* Light theme styles */
-.light-theme {
-    --background-color: #ffffff;
-    --text-color: #000000;
-}
-
-/* Dark theme styles */
-.dark-theme {
-    --background-color: #1a1a1a;
-    --text-color: #ffffff;
-}
-
-body {
-    font-family: "Roboto", sans-serif;
-    /* background: #f3f5f9; */
+/* body {
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -49,36 +33,35 @@ body {
 
 .sidenav .menu hr {
     color: white;
-}
+} */
 
-.link {
+/* .link {
     display: inline-block;
-    /* Ensures the link takes up only as much space as needed */
+    - Ensures the link takes up only as much space as needed 
     margin-right: 10px;
-    /* Adjust the margin as needed for spacing */
+    - Adjust the margin as needed for spacing 
 }
 
 .sidenav .menu a:hover {
     color: black;
-}
+} */
 
 .main {
-    margin-left: 200px;
     /* Same as the width of the sidenav */
     font-size: 15px;
     /* Increased text to enable scrolling */
     padding: 0px 0px;
 }
 
-.main .pageheader {
+/* .main .pageheader {
     padding: 20px;
     background: #fff;
     color: #717171;
     border-bottom: 3px solid #e0e4e8;
-}
+} */
 
-.main .info {
+/* .main .info {
     margin: 30px;
     color: #717471;
     line-height: 20px;
-}
+} */

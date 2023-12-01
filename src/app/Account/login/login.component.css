@@ -14,14 +14,13 @@ body {
 }
 
 .Container {
-    display: grid;
     height: 100%;
     place-items: center;
     margin-left: 0%;
-    padding-right: 15%;
+    /* padding-right: 15%; */
     /* background-color: #f2f2f2; */
-    /* padding-left: 30px; */
-    margin-top: 1%;
+    padding-top: 100px;
+    /* margin-top: 10%; */
 }
 
 .wrapper {

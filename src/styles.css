@@ -30,6 +30,7 @@ body {
   height: 100vh;
   background: var(--body-color);
   transition: var(--tran-05);
+  color: var(--text-color);
 }
 
 body.dark-theme {
@@ -39,9 +40,4 @@ body.dark-theme {
   --primary-color-light: #3A3B3C;
   --toggle-color: #FFF;
   --text-color: #CCC;
-}
-
-body {
-  background: var(--body-color);
-  color: var(--text-color);
 }

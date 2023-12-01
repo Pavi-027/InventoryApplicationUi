@@ -24,7 +24,6 @@ export class AddProductComponent implements OnInit {
     this.model = {
       productName: '',
       description: '',
-      productImageURL: '',
       price: 0,
       discount: 0,
       totalQuantityOfProduct: 0,

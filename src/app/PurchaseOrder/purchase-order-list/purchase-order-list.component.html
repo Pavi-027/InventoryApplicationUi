@@ -30,7 +30,7 @@
                     <tbody>
                         <tr *ngFor="let i=index, let purchaseOrder of purchaseOrders">
                             <td>{{i+1}}</td>
-                            <td>{{purchaseOrder.purchaseDate}}</td>
+                            <td>{{purchaseOrder.purchaseDate | date:'dd/MM/yyyy - hh:mm:ss'}}</td>
                             <td>{{purchaseOrder.supplier.supplierName}}</td>
                             <td>
                                 <span *ngFor="let product of purchaseOrder.products; let last = last">

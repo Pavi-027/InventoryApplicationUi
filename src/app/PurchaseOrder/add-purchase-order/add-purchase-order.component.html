@@ -6,39 +6,39 @@
         <div class="card-body pt-3">
             <form #form="ngForm" (ngSubmit)="onFormSubmit()">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-6">
                         <div class="border p-3 mt-5">
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Purchase Date</label>
-                                <input type="date" id="customerName" class="form-control" name="customerName"
+                                <input type="date" id="purchaseDate" class="form-control" name="purchaseDate"
                                     [(ngModel)]="model.purchaseDate">
                             </div>
                             <div class="mb-3 row p-1">
-                                <label class="form-label">Quantity</label>
-                                <input type="number" id="phoneNumber" class="form-control" name="phoneNumber"
-                                    [(ngModel)]="model.quantityForPurchase">
-                            </div>
-                            <div class="mb-3 row p-1">
-                                <label class="form-label">Total Cost</label>
-                                <input type="number" id="emailId" class="form-control" name="emailId"
-                                    [(ngModel)]="model.totalCostOfPurchaseorder">
-                            </div>
-                            <div class="mb-3 row p-1">
                                 <label class="form-label">Discount</label>
-                                <input type="number" id="streetAddress" class="form-control" name="streetAddress"
+                                <input type="number" id="Discount" class="form-control" name="Discount"
                                     [(ngModel)]="model.purchaseDiscount">
                             </div>
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Supplier Id</label>
-                                <input type="" id="city" class="form-control" name="city"
-                                    [(ngModel)]="model.supplierId">
+                                <input type="" id="supplierId" class="form-control" name="supplierId"
+                                    [(ngModel)]=" model.supplierId">
                             </div>
-
                             <div class="mb-3 row p-1" style="width: 50%;">
                                 <label>Products</label>
                                 <ng-multiselect-dropdown [placeholder]="'---Select Products---'"
                                     [settings]="dropdownSettings" [data]="products" formcontrolName="myProducts"
-                                    [(ngModel)]="selectedProducts" name="multipleSelect"></ng-multiselect-dropdown>
+                                    [(ngModel)]="selectedItem" name="multipleSelect"
+                                    (onSelect)="onSelect()"></ng-multiselect-dropdown>
+                            </div>
+                            <div class="mb-3 row p-1">
+                                <label class="form-label">Total Quantity</label>
+                                <input type="number" id="totalQuantity" class="form-control" name="totalQuantity"
+                                    [(ngModel)]="model.quantityForPurchase" readonly>
+                            </div>
+                            <div class="mb-3 row p-1">
+                                <label class="form-label">Total Cost</label>
+                                <input type="number" id="totalCostOfSalesOrder" class="form-control"
+                                    name="totalCostOfSalesOrder" [(ngModel)]="model.totalCostOfPurchaseorder">
                             </div>
 
 
@@ -52,8 +52,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <img src="" width="100%" style="border-radius: 5px; border:1px solid #bbb9b9" />
+                    <div class="col-6">
+                        <p>List of Products</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>S.no</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Loop through selectedProducts and display them in the table -->
+                                <tr *ngFor="let product of selectedProducts; let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{ product.productName }}</td>
+                                    <td>
+                                        <input type="number" [(ngModel)]="product.totalQuantityOfProduct"
+                                            name="quantity{{i}}" (change)="onQuantityChange(i)">
+                                    </td>
+                                    <!-- <td>{{ product.price }}</td> -->
+                                    <td>{{ product.totalQuantityOfProduct * product.price }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </form>

@@ -31,6 +31,14 @@ body {
     background: var(--sidebar-color);
 }
 
+.navbar a {
+    color: var(--text-color);
+}
+
+.navbar a.btn {
+    color: var(--text-color);
+}
+
 #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
 }

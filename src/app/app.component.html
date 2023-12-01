@@ -1,17 +1,20 @@
-<!-- <app-sidenav></app-sidenav> -->
+<div class="main">
+    <router-outlet></router-outlet>
 
-<app-sidebar-nav></app-sidebar-nav>
+    <ng-container *ngIf="accountService.user$ | async">
+        <app-sidebar-nav></app-sidebar-nav>
+    </ng-container>
+</div>
+
+
+
+
+<!-- <app-sidenav></app-sidenav> -->
 
 <!-- <div style="margin-left: 50%;">
     <button (click)="switchTheme('light-theme')">Light Theme</button>
     <button (click)="switchTheme('dark-theme')">Dark Theme</button>
 </div> -->
-
-<div class="main">
-    <div class="info">
-        <router-outlet></router-outlet>
-    </div>
-</div>
 
 <!-- <div class="sidenav">
     <div class="Header">

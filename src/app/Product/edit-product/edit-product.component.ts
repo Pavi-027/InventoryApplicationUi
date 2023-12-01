@@ -61,7 +61,6 @@ export class EditProductComponent implements OnInit, OnDestroy {
       var editProduct: editProduct = {
         productName: this.model.productName,
         description: this.model.description,
-        productImageURL: this.model.productImageURL,
         price: this.model.price,
         discount: this.model.discount,
         totalQuantityOfProduct: this.model.totalQuantityOfProduct,

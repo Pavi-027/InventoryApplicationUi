@@ -4,7 +4,6 @@ export interface product {
     productId: number,
     productName: string,
     description: string,
-    productImageURL: string,
     price: number,
     discount: number,
     totalQuantityOfProduct: number,

@@ -6,35 +6,29 @@
         <div class="card-body pt-3">
             <form #form="ngForm" (ngSubmit)="onFormSubmit()">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-7">
                         <div class="border p-3 mt-5">
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Sales Date</label>
-                                <input type="date" id="saleDate" class="form-control" name="saleDate"
+                                <input type="date" id="customerName" class="form-control" name="customerName"
                                     [(ngModel)]="model.saleDate">
                             </div>
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Discount</label>
-                                <input type="number" id="Discount" class="form-control" name="Discount"
+                                <input type="number" id="streetAddress" class="form-control" name="streetAddress"
                                     [(ngModel)]="model.salesDiscount">
                             </div>
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Customer Id</label>
-                                <input type="" id="customerId" class="form-control" name="customerId"
+                                <input type="text" id="city" class="form-control" name="city"
                                     [(ngModel)]="model.customerId">
                             </div>
-
                             <div class="mb-3 row p-1" style="width: 50%;">
                                 <label>Products</label>
                                 <ng-multiselect-dropdown [placeholder]="'---Select Products---'"
-                                    [settings]="dropdownSettings" [data]="products" formcontrolName="myProducts"
-                                    [(ngModel)]="selectedItem" name="multipleSelect"
-                                    (onSelect)="onSelect()"></ng-multiselect-dropdown>
-                            </div>
-                            <div class="mb-3 row p-1">
-                                <label class="form-label">Total Quantity</label>
-                                <input type="number" id="totalQuantity" class="form-control" name="totalQuantity"
-                                    [(ngModel)]="model.quantityForSale" readonly>
+                                    [settings]="dropdownSettings" [data]="products" formControlName="myProducts"
+                                    [(ngModel)]="selectedProducts" name="multipleSelect" (onSelect)="onSelect()">
+                                </ng-multiselect-dropdown>
                             </div>
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Total Cost</label>
@@ -51,28 +45,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <p>List of Products</p>
+                    <div class="col-5">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>S.no</th>
                                     <th>Product</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Loop through selectedProducts and display them in the table -->
                                 <tr *ngFor="let product of selectedProducts; let i = index">
-                                    <td>{{i+1}}</td>
                                     <td>{{ product.productName }}</td>
                                     <td>
                                         <input type="number" [(ngModel)]="product.totalQuantityOfProduct"
                                             name="quantity{{i}}" (change)="onQuantityChange(i)">
                                     </td>
-                                    <!-- <td>{{ product.price }}</td> -->
-                                    <td>{{ product.totalQuantityOfProduct * product.price }}</td>
+                                    <td>{{ product.price }}</td>
                                 </tr>
                             </tbody>
                         </table>

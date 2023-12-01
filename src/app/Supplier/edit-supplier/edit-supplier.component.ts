@@ -58,6 +58,7 @@ export class EditSupplierComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           this.router.navigateByUrl('supplier/list')
+          //this.router.navigate([{ outlets: { sub: 'supplier/list' } }]);
         }
       });
   }
@@ -67,6 +68,7 @@ export class EditSupplierComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           this.router.navigateByUrl('supplier/list');
+          //this.router.navigate([{ outlets: { sub: 'supplier/list' } }]);
         }
       });
   }
@@ -77,6 +79,7 @@ export class EditSupplierComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (response) => {
             this.router.navigateByUrl('supplier/list');
+            //this.router.navigate([{ outlets: { sub: 'supplier/list' } }]);
           }
         });
     }

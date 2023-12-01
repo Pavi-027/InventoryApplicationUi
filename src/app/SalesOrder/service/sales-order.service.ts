@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { addSalesOrder } from '../Model/addSalesOrder.model';
 import { salesOrder } from '../Model/salesOrder.model';
 import { environment } from 'src/environments/environment.development';
+import { salesOrderAdd } from '../Model/salesOrderAdd.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,9 @@ export class SalesOrderService {
   constructor(private http: HttpClient) { }
 
   createSalesOrder(data: addSalesOrder): Observable<salesOrder> {
+    return this.http.post<salesOrder>(`${environment.appUrl}/SalesOrder`, data);
+  }
+  addSales(data: salesOrderAdd): Observable<salesOrder> {
     return this.http.post<salesOrder>(`${environment.appUrl}/SalesOrder`, data);
   }
 
