@@ -8,7 +8,7 @@ import { ThemeService } from '../theme.service';
   styleUrls: ['./sidebar-nav.component.css']
 })
 export class SidebarNavComponent {
-  status: boolean = false;
+  status: boolean = true;
 
   constructor(public accountService: AccountService,
     private themeService: ThemeService) { }

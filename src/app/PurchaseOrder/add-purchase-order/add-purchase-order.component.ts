@@ -111,6 +111,31 @@ export class AddPurchaseOrderComponent implements OnInit {
     this.model.quantityForPurchase = totalQuantity;
   }
 
+  onDeSelect() {
+    // // Handle the event when a product is unchecked in the dropdown
+    // Map the prices of the selected items
+    this.selectedProducts = this.selectedItem.map((itemId: any) => {
+      const selectedProduct = this.getPriceByProductId(itemId.productId);
+
+      if (selectedProduct) {
+        return {
+          ...selectedProduct,
+          totalQuantityOfProduct: 1,
+          price: selectedProduct.price
+        };
+      }
+
+      return null;
+    }).filter(Boolean) as product[];
+
+    console.log('Selected Products', this.selectedProducts);
+    this.updateTotalCost();
+
+    // Calculate and update the total quantity of all selected products
+    const totalQuantity = this.calculateTotalQuantity();
+    this.model.quantityForPurchase = totalQuantity;
+  }
+
   getPriceByProductId(productId: number): product | undefined {
     const product = this.products.find((item: product) => item.productId === productId);
     return product ? product : undefined;

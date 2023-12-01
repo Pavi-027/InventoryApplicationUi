@@ -106,6 +106,33 @@ export class AddSalesOrderComponent implements OnInit {
       return null; // Return null if the product is not found
     }).filter(Boolean) as product[]; // Remove null values from the array
 
+    this.selectedProducts = this.selectedProducts;
+
+    console.log('Selected Products', this.selectedProducts);
+    this.updateTotalCost();
+
+    // Calculate and update the total quantity of all selected products
+    const totalQuantity = this.calculateTotalQuantity();
+    this.model.quantityForSale = totalQuantity;
+  }
+
+  onDeSelect() {
+    // // Handle the event when a product is unchecked in the dropdown
+    // Map the prices of the selected items
+    this.selectedProducts = this.selectedItem.map((itemId: any) => {
+      const selectedProduct = this.getPriceByProductId(itemId.productId);
+
+      if (selectedProduct) {
+        return {
+          ...selectedProduct,
+          totalQuantityOfProduct: 1,
+          price: selectedProduct.price
+        };
+      }
+
+      return null;
+    }).filter(Boolean) as product[];
+
     console.log('Selected Products', this.selectedProducts);
     this.updateTotalCost();
 

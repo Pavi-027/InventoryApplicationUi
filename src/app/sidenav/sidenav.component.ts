@@ -10,7 +10,7 @@ import { ThemeService } from '../theme.service';
 })
 export class SidenavComponent implements OnInit {
   isDarkTheme: boolean = false;
-  status: boolean = false;
+  status: boolean = true;
   constructor(public accountService: AccountService,
     private themeService: ThemeService,
     private el: ElementRef) { }

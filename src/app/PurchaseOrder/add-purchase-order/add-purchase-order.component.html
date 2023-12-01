@@ -27,8 +27,8 @@
                                 <label>Products</label>
                                 <ng-multiselect-dropdown [placeholder]="'---Select Products---'"
                                     [settings]="dropdownSettings" [data]="products" formcontrolName="myProducts"
-                                    [(ngModel)]="selectedItem" name="multipleSelect"
-                                    (onSelect)="onSelect()"></ng-multiselect-dropdown>
+                                    [(ngModel)]="selectedItem" name="multipleSelect" (onSelect)="onSelect()"
+                                    (onDeSelect)="onDeSelect()"></ng-multiselect-dropdown>
                             </div>
                             <div class="mb-3 row p-1">
                                 <label class="form-label">Total Quantity</label>
@@ -40,8 +40,6 @@
                                 <input type="number" id="totalCostOfSalesOrder" class="form-control"
                                     name="totalCostOfSalesOrder" [(ngModel)]="model.totalCostOfPurchaseorder">
                             </div>
-
-
                             <div class="row">
                                 <div class="col-6 col-md-3">
                                     <button type="submit" class="btn btn-primary form-control">Create</button>
